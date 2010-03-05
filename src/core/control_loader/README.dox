@@ -1,0 +1,63 @@
+/*! \namespace sfd::core::control_loader
+\brief Loads %form controls provided in a %form of plugins
+
+When plugin is succesfully loaded it will show up through 
+mva::control_loader::ControlBoxModel in GUI with provided icon and name. They 
+are backward compatible with Qt-Designer but FormDesigner cannot load standart 
+Qt-Designer plugins. These plugins will be kept in the class 
+core::control_loader::ControlPluginLoader which also manage loading of plugins 
+and notify if format is not supported. ControlPlugin shouldn't allow developer 
+call QWidget* QDesignerCustomWidgetInterface::createWidget().
+To instance widget of the plugin the method QWidget *createWidgetSafe() must be 
+called. It also adds the necessary dynamic properties used internally.
+
+Non-Visual Controls like QTimer are wrapped to make them selectable than 
+the user can see the properties in sfd::gui::property_editor.
+
+\verbatim
+TOTO JE NECO JAKO CUSTOM_WIDGET_INTERFACE !!!
+
+class ControlPlugin : QDesignerCustomWidgetInterface
+{
+    bool isVisual // ro
+    // ro type?
+    QStringList userEditableProperties // ro, AKA supported properties
+
+protected:
+    virtual QWidget *createWidget() = 0;
+
+public:
+    QWidget *createWidgetSafe()
+    {
+        w = createWidget();
+        if (!isControl(w))
+            error();
+    }
+
+protected:
+    static QWidget *controlize(QWidget*, QString pluginName, ...) // ???
+    {
+        w->setProperty("pluginName", pluginName);
+        ....
+        return w;
+    }
+
+    static bool isControl(QWidget* w)  // ???
+    {
+        if (w->dynamicPropertyList().indexOf("pluginName") == -1)
+            return false;
+    }
+}
+
+TOTO JE NECO JAKO PLUGIN_LOADER !!!
+
+class ControlPluginLoader
+{
+    load()
+    QList<ControlPlugin> loadedControlPlugins()
+
+signals:
+    loaded(int i)
+}
+\endverbatim
+*/

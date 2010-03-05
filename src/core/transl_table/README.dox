@@ -1,0 +1,4 @@
+/*! \namespace sfd::core::transl_table
+\brief Manipulates localization files called Translation Tables
+
+*/

@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="gui/transl_table/icons" >
+        <file>id_add.png</file>
+        <file>id_clone.png</file>
+        <file>id_remove.png</file>
+        <file>language_add.png</file>
+        <file>language_remove.png</file>
+    </qresource>
+</RCC>

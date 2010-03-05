@@ -1,0 +1,11 @@
+/*! \namespace sfd::mva::form
+
+\verbatim
+class FormInspectorModel : QAbstractItemModel
+{
+private slot:
+    onControlAdded(int i)
+    onAboutToRemoveControl(int i)
+};
+\endverbatim
+*/

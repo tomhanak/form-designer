@@ -1,0 +1,25 @@
+/*! \namespace sfd
+\brief The top level namespace
+
+At this level, one can find couple of main subsystems with an extra namespace 
+for each one, dividing the application's code base by its "nature" -- similarly 
+to what a Three Layer Architecture system consists of.
+
+Here is how the subsystems (components under these subsystems) interface with 
+each other.
+
+\verbatim
+┌──────────────────┐
+│       GUI        │
+├──────┬───────┐   │
+│ UNDO └─┐ MVA │   │
+├────────┴─────┴───┤
+│                  │
+│     C O R E      │
+│                  │
+├──────────────────┤
+│      TOOLS       │
+└──────────────────┘
+\endverbatim
+
+*/

@@ -1,0 +1,12 @@
+/*! \namespace sfd::gui::project_browser
+\brief Provides clickable project structure browser
+
+Project browser component provides an overview for project content.
+Every item in the view has:
+    - an icon corresponding with its type
+    - some kind of "icon overlay" showing whether the item is signed or not
+    - popup menu with allowed actions
+
+The browser can display the content of at most one project file. Opened files 
+are saved and restored automatically as user closes and opens projects.
+*/

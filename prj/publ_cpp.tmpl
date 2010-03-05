@@ -1,0 +1,15 @@
+#include "%CLASS_NAME%_p.hpp"
+
+using namespace %NAMESPACE%;
+
+%CLASS_NAME%::%CLASS_NAME%(QObject *parent)
+    : QObject(parent)
+    , p(new Private(this))
+{
+}
+
+
+%CLASS_NAME%::Private::Private(%CLASS_NAME% *publ)
+    : p(publ)
+{
+}

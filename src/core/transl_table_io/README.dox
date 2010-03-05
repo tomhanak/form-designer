@@ -1,0 +1,23 @@
+/*! \namespace sfd::core::transl_table_io
+\brief Serialization and deserialization support for core::transl_table
+
+All translation tables are collected in one virtual table implemented in class 
+transl_table::UnifiedTranslTable. When reading their content during project 
+opening action, all available translation tables are read from given disk or 
+stream. Saving operation stores only selected language to separate file.
+
+This is the only component for translation tables that touches physical files 
+on disk or in stream.
+
+\verbatim
+class TranslTableReader
+{
+    read(QIODevice, UnifiedTranslTable*)
+}
+
+class TranslTableWriter
+{
+    write(QIODevice, UnifiedTranslTable, QString language)
+}
+\endverbatim
+*/

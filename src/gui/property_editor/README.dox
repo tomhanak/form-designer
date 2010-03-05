@@ -1,0 +1,4 @@
+/*! \namespace sfd::gui::property_editor
+\brief This uses external framework to show properties of any QObject derived class.
+
+*/

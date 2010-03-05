@@ -1,0 +1,28 @@
+#!/bin/bash
+
+TOP_DIR="$(dirname "${0}")"
+BUILD_DIR="${TOP_DIR}/build"
+MAKEFILE="${TOP_DIR}/Makefile"
+DOXYDIR="${TOP_DIR}/doc/API"
+
+trap 'echo "Failed"; exit 1' ERR
+
+cat >${MAKEFILE} <<END
+default:
+	cd "${BUILD_DIR}" && make
+
+clean:
+	cd "${BUILD_DIR}" && make clean
+
+distclean:
+	cd "${BUILD_DIR}" && make distclean
+
+.PHONY: doc
+
+doc:
+	cd "${DOXYDIR}" && doxygen
+END
+
+mkdir -p "${BUILD_DIR}"
+cd "${BUILD_DIR}"
+qmake "../src/src.pro" "${@}"

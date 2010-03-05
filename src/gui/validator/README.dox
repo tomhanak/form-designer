@@ -1,0 +1,42 @@
+/*! \namespace sfd::gui::validator
+\brief Provides clickable list of bugs, warnings, etc.
+
+\dot
+digraph gui_validator_overview {
+    node [ shape=record ];
+    edge [ arrowhead=open ];
+
+    validator_dock [ label="gui::validator::???" ];
+
+    validator_dock -> QTabWidget [ arrowtail=odiamond ];
+
+    all_tab [ label="QTableView" ];
+    errors_tab [ label="QTableView" ];
+    warnings_tab [ label="QTableView" ];
+
+    QTabWidget -> all_tab [ arrowtail=odiamond taillabel="\H" labeldistance=5 
+            ];
+    QTabWidget -> errors_tab [ arrowtail=odiamond taillabel="\H" 
+            labeldistance=2 ];
+    QTabWidget -> warnings_tab [ arrowtail=odiamond taillabel="\H" 
+            labeldistance=1 ];
+
+    all_filter [ label="no-filter" style=dashed ];
+    errors_filter [ label="QSortFilterProxyModel" ];
+    warnings_filter [ label="QSortFilterProxyModel" ];
+
+    all_tab -> all_filter;
+    errors_tab -> errors_filter;
+    warnings_tab -> warnings_filter;
+
+    validator_model [ label="mva::validator::???" ];
+    validator [ label="core::validator::???" ];
+
+    all_filter -> validator_model;
+    errors_filter -> validator_model;
+    warnings_filter -> validator_model;
+
+    validator_model -> validator;
+}
+\enddot
+*/

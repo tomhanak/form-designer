@@ -1,0 +1,32 @@
+/*! \namespace sfd::undo
+\brief Undo Framework provides undo/redo commands for most user's actions
+
+All user actions will be kept in a undo stack with fixed size and user can 
+undo/redo his actions any time. This stack is not saved with project e.g. 
+after closing project or restart the application no undo command is in the 
+history. Stack size will be configurable through setting dialog.
+
+\dot
+digraph example {
+    node [ shape="oval" ];
+    edge [ arrowhead="open" ];
+
+    GuiAction -> UndoFramework;
+    UndoFramework -> Core;
+}
+\enddot
+
+All actions called in GUI are passed to the responsible class which  will 
+handle the action and create proper command. On this command is called redo 
+method which actually does what user wants and then the command is stored in 
+the stack.
+
+Example:
+    - User edit property objectName
+    - Signal is emitted to the responsible class
+    - Command EditProperty is created, it has pointer to object, value before 
+        and after change
+    - On the command is called redo method, which change the value of the 
+        property
+    - If redo method is successful EditProperty is added to the stack
+*/

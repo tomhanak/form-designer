@@ -1,0 +1,22 @@
+/*! \namespace sfd::core::project_io
+\brief Serialization and deserialization support for core::project
+
+This component simply goes through the list of all files assigned to the given 
+Project and saves whole project to the given file or stream.
+Oposite action, loading, is provided as well.
+
+This is the only component for projects that touches physical files on disk or 
+in stream.
+
+\verbatim
+class ProjectReader
+{
+    read(QIODevice, Project*)
+}
+
+class ProjectWriter
+{
+    write(QIODevice, Project)
+}
+\endverbatim
+*/

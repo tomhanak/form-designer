@@ -1,0 +1,21 @@
+/*! \page readme_changelog List of Changes on README*.dox Files
+
+    <!-- with the newest one on top! -->
+
+    - 2010/01/27 11:24 MK \ref CS_snippet; namespaces ends on one line: '}}}'
+    - 2010/01/22 10:30 RV sfd::undo edited
+    - 2010/01/22 10:20 MK \ref CS_reimpl added
+    - 2010/01/20 17:45 TH sfd::core::transl_table added
+    - 2010/01/20 15:20 RV sfd::core::control_loader edited
+    - 2010/01/20 15:10 RV sfd::undo edited + example
+    - 2010/01/20 13:30 TH sfd::core::transl_table_io added
+    - 2010/01/20 10:55 RV sfd::undo added
+    - 2010/01/20 10:55 TH sfd::gui::project_browser added
+    - 2010/01/20 10:50 TH sfd::core::project_io added
+    - 2010/01/20 10:45 TH sfd::core::form_io added
+    - 2010/01/19 16:15 MK sfd::gui::validator added
+    - 2010/01/19 16:15 TH sfd::core::project added
+    - 2010/01/19 14:55 MK \ref coding_standards added
+    - 2010/01/19 13:46 MK \ref readme_changelog added
+
+*/

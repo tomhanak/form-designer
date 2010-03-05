@@ -1,0 +1,4 @@
+<RCC>
+    <qresource prefix="/gui/main_window/icons" >
+    </qresource>
+</RCC>

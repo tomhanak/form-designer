@@ -1,0 +1,9 @@
+/*! \namespace sfd::mva::project
+
+\verbatim
+class IconProvider
+{
+    createIcon(???) // based on data type represented by model items
+}
+\endverbatim
+*/

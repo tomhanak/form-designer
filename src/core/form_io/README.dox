@@ -1,0 +1,22 @@
+/*! \namespace sfd::core::form_io
+\brief Serialization and deserialization support for core::form.
+
+This component simply goes through the list of widgets placed on the given 
+Form and saves whole form to the given file or stream in format compatible with 
+Qt Designer's UI file. Oposite action, loading, is provided as well.
+
+This is the only component for forms that touches physical files on disk or in 
+stream.
+
+\verbatim
+class FormReader
+{
+    read(QIODevice, Form*)
+}
+
+class FormWriter
+{
+    write(QIODevice, Form)
+}
+\endverbatim
+*/

@@ -1,0 +1,25 @@
+#pragma once
+
+#include <QtCore/QObject>
+
+%NAMESPACE_BEGIN%
+class %CLASS_NAME% : public QObject
+{
+    Q_OBJECT
+
+public:
+    %CLASS_NAME%(QObject *parent = 0);
+    ~%CLASS_NAME%();
+
+public:
+
+private:
+    class Private;
+    p_ptr<Private> p;
+};
+
+%NAMESPACE_END% // namespace
+
+#if CONFIG__PIMPL_RELEASE_MODE
+# include "_lib/%CLASS_NAME%_p.hpp"
+#endif

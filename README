@@ -1,0 +1,23 @@
+Run trunk/ext/qtpropertybrowser_update.sh script first to download and compile
+Qt Property Browser component.
+
+Full recompilation can be done by running trunk/REBUILD.sh.
+
+Developers who wanna add new source files must not modify project files by hand.
+These are generated automatically using mid9th toolbox.
+Run trunk/ext/mid9th_toolbox_update.sh script first to download/update scripts
+AutoQMake.sh and template.sh.
+
+To generate new source files from templates (examples are in trunk/prj/) go
+into the trunk/src folder, run ../ext/template.sh script and follow usage hint.
+  e.g. generate a class XYZ with public header in component sfd::gui::validator:
+    ../ext/template.sh ../prj public sfd::gui::validator::XYZ
+
+To (re)generate project files from all available sources, resources, etc. go
+into the trunk/src folder, run ../ext/AutoQMake.sh script and follow usage hint.
+Most probably you wanna run:
+    ../ext/AutoQMake.sh sfd
+
+Extra component dependecies and other project related stuff can be configured
+via AutoQMake.cfg file that should be created in the component folder.
+Look for existing AutoQMake.cfg files to see the syntax.

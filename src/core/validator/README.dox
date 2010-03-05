@@ -1,0 +1,93 @@
+/*! \namespace sfd::core::validator
+\brief Validates %project and all the things it consists of
+
+A result of a validate operation will be a list of buggy locations, presented 
+through mva::validator on gui::validator. After selection of a location in 
+gui::validator, a correspondent piece of GUI will be highlighted; this process 
+will be coordinated at core::validator level -- see \ref validator_highlight 
+below.
+
+\section validator_highlight On Error highlighting
+
+Imagin an oriented, unidirectional graph where every node represents a type of 
+each \e object which can act as a part of a project -- directly or indirectly 
+as a component part -- and each edge means a composition relation.
+
+\dot
+digraph example {
+    node [ shape="oval" ];
+    edge [ arrowhead="open" ];
+
+    Project -> TranslTable;
+        TranslTable -> TranslTableRow;
+    Project -> Form;
+        Form ->Control;
+            Control -> Property;
+    Project -> ResourceFile;
+        ResourceFile -> Resource;
+
+}
+\enddot
+
+Every object being validated, can be addressed/located as a part of project, 
+just by enumerating all the containers around it.
+
+E.g.
+    - my_first_project : Project
+    - enter_credentials : Form
+    - email_lineedit : Control
+    - text : Property
+
+When an error with the \c text property occures while validating \c 
+my_first_project, it is desired to highlight the corresponding row in property 
+editor. In order to do it at arbitrary time, one has to ensure all the other 
+objects, \e containing this one, are selected/activated/visible or whatever 
+else in order.
+
+\code
+highlightProject("my_first_project");
+highlightForm("enter_credentials");
+highlightControl("email_lineedit");
+highlightProperty("text");
+\endcode
+
+The implementation of those methods will be done in two ways
+
+    -# there are objects one can \e activate at the core level -- like Project, 
+        Form and Control is
+        - related methods will be implemented purely by validator
+    -# there are objects with no representation of \e active state at the core 
+        level -- like in case of Property.
+        - validator will only provide Q_SIGNALs and each (at this time 
+          unspecified) related GUI parts will connect its Q_SLOTs to to this 
+          Q_SIGNALs, providing expected behavior.
+
+As a result, here is a draft interface with working name \c Highlighter
+
+\code
+class Location
+{
+    // ...
+};
+
+class Highlighter
+{
+public:
+    void highlight(const Location &location);
+
+Q_SIGNAL:
+    highlightTranslTable(...);
+    highlightTranslTableRow(...);
+
+    highlightProperty(...);
+
+    highlightResourceFile(...);
+    highlightResource(...);
+
+private:
+    highlightForm(...) { project->setActiveForm(...); }
+    highlightControl(...) { project->activeForm()->selectControl(...); }
+}
+\endcode
+
+*/

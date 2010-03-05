@@ -1,0 +1,49 @@
+/*! \namespace sfd::mva
+\brief A glue between core and gui components using Qt's Model/View framework
+
+Standing for Model/View Adaptor, an mva component provides implementation of 
+QAbstractItemModel in order to display data provided by some core component 
+using Qt's Item View classes, embedded in some gui component.
+
+An example with core::project::Project, mva::project::Project and 
+gui::project_browser::ProjectBrowser.
+
+\dot
+digraph example {
+    node [ shape=record ];
+
+    subgraph cluster_qt {
+        label_qt [ label="Qt", shape="plaintext" ];
+
+        QTreeView;
+        QAbstractItemModel;
+    }
+
+    gui [ label="gui...ProjectBrowser",
+            URL="\ref gui::project_browser::ProjectBrowser" ];
+    mva [ label="mva...Project", URL="\ref mva::project::Project" ];
+    core [ label="core...Project", URL="\ref core::project::Project" ];
+
+    QTreeView -> gui [ arrowhead="odiamond" ];
+    QTreeView -> mva [ arrowhead="open" ];
+    mva -> QAbstractItemModel [ arrowhead="onormal" ];
+    mva -> core [ arrowhead="open" ];
+}
+\enddot
+*/
+
+\verbatim
+┌───────────────────────────┐
+│       ┌─────────────────┐ │
+│ GUI   │ project_browser │ │
+│       └─────────────────┘ │
+├───────────────────────────┤
+│           ┌─────────┐     │
+│ MVA       │ project │     │
+│           └─────────┘     │
+├───────────────────────────┤
+│           ┌─────────┐     │
+│ CORE      │ project │     │
+│           └─────────┘     │
+└───────────────────────────┘
+\endverbatim

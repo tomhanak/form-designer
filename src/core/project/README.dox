@@ -1,0 +1,12 @@
+/*! \namespace sfd::core::project
+\brief Organizes all the things required to design, build and deploy a form
+
+This namespace holds all classes related to the project which don't have 
+separate namespace and project class itself. Project holds informations about 
+target platform and all files attached to this project.
+
+Classes here offer general data required by other components. The project 
+structure is visualized via gui::project_browser component, interface allows 
+to obtain or change active form or for instance core::validator component 
+can use it for highlihting corresponding piece of GUI for selected error.
+*/

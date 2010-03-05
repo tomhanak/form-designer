@@ -1,0 +1,19 @@
+#pragma once
+
+#include "../%CLASS_NAME%.hpp"
+
+%NAMESPACE_BEGIN%
+class %CLASS_NAME%::Private
+{
+    friend class %CLASS_NAME%;
+    p_ptr<%CLASS_NAME%> p;
+
+private:
+    Private(%CLASS_NAME% *publ);
+
+private:
+};
+
+PIMPL_DEFINE_DESTRUCTOR(%CLASS_NAME%)
+
+%NAMESPACE_END% // namespace
