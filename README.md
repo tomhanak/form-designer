@@ -9,5 +9,5 @@ Follow the README file to compile the sources including all dependencies.
 Sources are available under LGPLv3.
 
 Screenshots are available in [GIT repository](https://github.com/tomhanak/form-designer/tree/master/doc/screenshots/).
-![https://github.com/tomhanak/form-designer/tree/master/doc/screenshots/form-designer_1.png](https://github.com/tomhanak/form-designer/tree/master/doc/screenshots/form-designer_1.png)
-![https://github.com/tomhanak/form-designer/tree/master/doc/screenshots/form-designer_2.png](https://github.com/tomhanak/form-designer/tree/master/doc/screenshots/form-designer_2.png)
+![/doc/screenshots/form-designer_1.png](/doc/screenshots/form-designer_1.png)
+![/doc/screenshots/form-designer_2.png](/doc/screenshots/form-designer_2.png)
